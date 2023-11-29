@@ -403,7 +403,7 @@
         const maxLength = commentsRef.getAttribute('maxlength');
 
         setInfoMessage(commentsInfoRef, `${commentsRef.value.length}`)
-        if ((maxLength - 10) <= commentsRef.value.length) {
+        if ((maxLength - 50) <= commentsRef.value.length) {
           commentsInfoRef.style.color = '#E80000';
         } 
         else {
