@@ -42,6 +42,7 @@
           <div id="modal-backdrop">
             <div id="modal-content-container">
               <div id="modal-content">
+                <h6 style="font-size: larger;">Make Custom Theme</h6>
                 <table>
                   <tr>
                     <td>Name of Theme:</td>
@@ -72,6 +73,7 @@
                     </td>
                   </tr>
                 </table>
+                <button onclick="saveTheme()">Save</button>
                 <div>
                   <h6 style="font-size: larger;">Premade Theme Options</h6>
                   <div id="theme-flexbox">
@@ -87,7 +89,6 @@
                 </div>
                 <div style="display: flex; justify-content: space-between;">
                   <div>
-                    <button onclick="saveTheme()">Save</button>
                     <button onclick="deleteAllCustomThemes()">Delete All</button>
                   </div>
                   <button onclick="closeCustomizeTheme()">Close</button>
