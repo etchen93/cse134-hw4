@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Portfolio, Software, Engineering, Frontend">
+    <meta name="description" content="Frontend Software Engineering Portfolio Home">
+    <link rel="stylesheet" href="./styles/common.css">
+    <link rel="stylesheet" href="./styles/home.css">
+    <link rel="stylesheet" href="./styles/about.css">
+    <link rel="stylesheet" href="./styles/resume.css">
+    <link rel="stylesheet" href="./styles/projects.css">
+    <link rel="stylesheet" href="./styles/contact.css">
+    <title>Ethan Chen's Portfolio</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a href="#home-container">Home</a>
+          </li>
+          <li>
+            <a href="#about-container">About</a>
+          </li>
+          <li>
+            <a href="#resume-container">Resume</a>
+          </li>
+          <li>
+            <a href="#projects-container">Projects</a>
+          </li>
+          <li>
+            <a href="#contact-container">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section id="home-container">
+      <img src="./images/starterPicture.jpg" alt="error loading picture" class="picture-home">
+      <div style="padding: 20px">
+        <h1 class="name-text">
+          Hello. I'm <strong>Ethan Chen</strong>
+        </h1>
+        <div class="name-subtext">
+          Undergraduate student looking to learn and apply skills in the workplace
+        </div>
+      </div>
+    </section>
+    <hr>
+    <section id="about-container">
+      <h2>About Me</h2>
+      <h4>Personal</h4>
+      <p>
+        Personal Section
+      </p>
+      <h4>Professional</h4>
+      <p>
+        All professional insights can be seen in Resume.
+      </p>
+    </section>
+    <hr>
+    <section id="resume-container">
+      <h2>Here is my <u>Resume</u></h2>
+      <iframe src="example.pdf"></iframe>
+    </section>
+    <hr>
+    <section id="projects-container">
+      <h2>Here are my <u>Projects</u></h2>
+      <h4>Featured Projects</h4>
+      <div class="project-flexbox">
+        <div class="item">
+          <img src="./images/one.jpg" alt="error loading picture" class="picture-project">
+          <h5>Project 1</h5>
+          <div>
+            <button>Demo</button>
+            <button>Code</button>
+          </div>
+        </div>
+      </div>
+      <h4>Other Projects</h4>
+      <div class="project-flexbox">
+        <div class="item">
+          <img src="./images/two.jpg" alt="error loading picture" class="picture-project">
+          <h5>Project 2</h5>
+          <div>
+            <button>Demo</button>
+            <button>Code</button>
+          </div>
+        </div>
+        <div class="item">
+          <img src="./images/three.jpg" alt="error loading picture" class="picture-project">
+          <h5>Project 3</h5>
+          <div>
+            <button>Demo</button>
+            <button>Code</button>
+          </div>
+        </div>
+        <div class="item">
+          <img src="./images/four.jpg" alt="error loading picture" class="picture-project">
+          <h5>Project 4</h5>
+          <div>
+            <button>Demo</button>
+            <button>Code</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr>
+    <section id="contact-container">
+      <h2><u>Contact</u> Me</h2>
+      <form>
+        <label for="name" class="form-group">Name:</label>
+        <input class="form-no-js-input" type="text" id="name" name="name" placeholder="Enter Name" pattern="\w{1,30}" required>
+        <output id="nameError" class="errorMessage">Error: Please Enter Name</output>
+        <output id="nameInfo" class="infoMessage"></output>
+        <label for="email" class="form-group">Email:</label>
+        <input type="email" class="form-no-js-input" id="email" name="email" placeholder="Enter Email" pattern=".+@.+" required>
+        <output id="emailError" class="errorMessage">Error: Please Enter Email</output>
+        <output id="emailInfo" class="infoMessage"></output>
+        <label for="comments" class="form-group">Comments:</label>
+        <textarea class="form-no-js-textarea" id="comments" name="comments" rows="10" placeholder="Enter Comments" pattern="\w{1,30}" required></textarea>
+        <output id="commentsError" class="errorMessage">Error: Please Enter Comments</output>
+        <output id="commentsInfo" class="infoMessage"></output>
+        <input class="form-no-js-input" type="hidden" id="custId" name="custId" value="3487">
+        <button onclick="submitContact()">Submit</button>
+      </form>
+    </section>
+    <script>
+      async function submitContact() {
+        let nameRef = document.getElementById("name");
+        let emailRef = document.getElementById("email");
+        let commentsRef = document.getElementById("comments");
+
+        let form = {
+          name: nameRef.value,
+          email: emailRef.value,
+          comments: commentsRef.value
+        };
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(form)
+          };
+        try {
+          let response = await fetch('https://httpbin.org/post', requestOptions);
+          console.log(response);
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    </script>
+  </body>
+</html>

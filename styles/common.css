@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nova+Square&family=Playfair+Display&family=Roboto+Mono&family=Vina+Sans&display=swap');
+
+html {
+  scroll-behavior: smooth;
+  min-height: 100dvh;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: var(--font-set), monospace;
+  color: var(--text-color);
+}
+
+:root {
+  --nav-height: 50px;
+  --background-color: #FFFFFF;
+  --primary-color: #E5D283;
+  --text-color: black;
+  --font-set: 'Source Code Pro';
+  --default-font-size: 16px;
+  --subheader-font-size: 25px;
+  --subsubheader-font-size: 20px;
+  --section-header-font-size: 40px;
+}
+
+h1:has(+ p) {
+  margin-bottom: 0;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  background-color: var(--background-color, #F0F0F0);
+}
+
+header {
+  width: 100dvw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav {
+  position: fixed;
+  height: var(--nav-height, 50px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color, #E5D283);
+  top: 0;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 50;
+}
+
+nav ul {
+  padding: 0;
+  margin: 0 5px;
+}
+
+nav ul li {
+  list-style-type: none;
+  margin: 0;
+  display: inline-block;
+  border-radius: 10px;
+  transition: background-color .25s;
+  padding: 10px;
+}
+
+nav ul li:hover {
+  border-radius: 10px;
+  background-color:rgba(128, 126, 101, 0.3);
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+  font-size: var(--default-font-size, 16px);
+}
+
+#modal-backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 5;
+}
+
+#modal-content-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#theme-flexbox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: center;
+}
+
+#modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 50vw;
+  height: 50vh;
+  box-shadow: 0 0 10px grey;
+  z-index: 10;
+  overflow-y: auto;
+}
+
+.theme-option {
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+  border: solid black 1px;
+}
+
+.theme-option:hover {
+  scale: 1.1;
+}
+
+#theme-button {
+  cursor: pointer;
+}
+
+#sun.theme-option {
+  background: linear-gradient(to bottom, #FFFFFF 50%, #E5D283 50%);
+}
+
+#moon.theme-option {
+  background: linear-gradient(to bottom, black 50%, white 50%);
+}
+
+*::-webkit-scrollbar {
+  width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  border: 3px solid var(--background-color);
+}
+
+h2 {
+  text-align: center;
+  font-size: var(--section-header-font-size, 40px);
+}
+
+h4 {
+  font-size: var(--subheader-font-size, 25px);
+}
+
+h5 {
+  font-size: var(--subsubheader-font-size, 20px);
+}
+
+p {
+  font-size: var(--default-font-size, 16px);
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    --nav-height: 30px;
+    --default-font-size: 12px;
+    --subsubheader-font-size: 15px;
+    --subheader-font-size: 20px;
+    --section-header-font-size: 30px;
+  }
+  nav {
+    font-size: .7rem;
+  }
+  nav ul li {
+    list-style-type: none;
+    margin: 0;
+    display: inline-block;
+    border-radius: 10px;
+    transition: background-color .25s;
+    padding: 0px;
+  }
+  nav ul li a {
+    text-decoration: none;
+    color: black;
+    padding: 0px;
+  }
+  button a{
+    padding: 1px;
+    margin: 1px;
+  }
+  button {
+    margin: 1px;
+    padding: 1px;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  :root {
+    --nav-height: 50px;
+    --default-font-size: 16px;
+    --subsubheader-font-size: 20px;
+    --subheader-font-size: 30px;
+    --section-header-font-size: 40px;
+  }
+}
+
+
+@media screen and (min-width: 1025px) {
+  :root {
+    --nav-height: 50px;
+    --default-font-size: 20px;
+    --subsubheader-font-size: 30px;
+    --subheader-font-size: 40px;
+    --section-header-font-size: 50px;
+  }
+}

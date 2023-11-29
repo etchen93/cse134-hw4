@@ -1,0 +1,420 @@
+<noscript>
+  JS Disabled
+  <a href="form-no-js.html">No JS Version of Page</a>
+</noscript>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Portfolio, Software, Engineering, Frontend">
+    <meta name="description" content="Frontend Software Engineering Portfolio Home">
+    <link rel="stylesheet" href="./styles/common.css">
+    <link rel="stylesheet" href="./styles/home.css">
+    <link rel="stylesheet" href="./styles/about.css">
+    <link rel="stylesheet" href="./styles/resume.css">
+    <link rel="stylesheet" href="./styles/projects.css">
+    <link rel="stylesheet" href="./styles/contact.css">
+    <title>Ethan Chen's Portfolio</title>
+  </head>
+  <body id="body">
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a href="#home-container">Home</a>
+          </li>
+          <li>
+            <a href="#about-container">About</a>
+          </li>
+          <li>
+            <a href="#resume-container">Resume</a>
+          </li>
+          <li>
+            <a href="#projects-container">Projects</a>
+          </li>
+          <li>
+            <a href="#contact-container">Contact</a>
+          </li>
+        </ul>
+        <div>
+          <button id="theme-button" onclick="openCustomizeTheme()"><u>Theme</u></button>
+          <div id="modal-backdrop">
+            <div id="modal-content-container">
+              <div id="modal-content">
+                <table>
+                  <tr>
+                    <td>Name of Theme:</td>
+                    <td><input type="text" id="nameTheme"></td>
+                  </tr>
+                  <tr>
+                    <td>Background Color:</td>
+                    <td><input type="color" id="backColorTheme"></td>
+                  </tr>
+                  <tr>
+                    <td>Primary Color:</td>
+                    <td><input type="color" id="primaryColorTheme"></td>
+                  </tr>
+                  <tr>
+                    <td>Text Color:</td>
+                    <td><input type="color" id="textColorTheme"></td>
+                  </tr>
+                  <tr>
+                    <td>Font Set:</td>
+                    <td>
+                      <select id="fontSetTheme">
+                        <option>Source Code Pro</option>
+                        <option>Nova Square</option>
+                        <option>Playfair Display</option>
+                        <option>Roboto Mono</option>
+                        <option>Vina Sans</option>
+                      </select>
+                    </td>
+                  </tr>
+                </table>
+                <div>
+                  <h6 style="font-size: larger;">Premade Theme Options</h6>
+                  <div id="theme-flexbox">
+                    <div>
+                      <div class="theme-option" id="sun" onclick="setTheme('#FFFFFF', '#E5D283', '#000000', 'Source Code Pro')"></div>
+                      Sun
+                    </div>
+                    <div>
+                      <div class="theme-option" id="moon" onclick="setTheme('#000000', 'white', '#8E8987', 'Source Code Pro')"></div>
+                      Moon
+                    </div>
+                  </div>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <div>
+                    <button onclick="saveTheme()">Save</button>
+                    <button onclick="deleteAllCustomThemes()">Delete All</button>
+                  </div>
+                  <button onclick="closeCustomizeTheme()">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>  
+      </nav>
+    </header>
+    <section id="home-container">
+      <img src="./images/starterPicture.jpg" alt="error loading picture" class="picture-home">
+      <div style="padding: 20px">
+        <h1 class="name-text">
+          Hello. I'm <strong>Ethan Chen</strong>
+        </h1>
+        <div class="name-subtext">
+          Undergraduate student looking to learn and apply skills in the workplace
+        </div>
+      </div>
+    </section>
+    <hr>
+    <section id="about-container">
+      <h2>About Me</h2>
+      <h4>Personal</h4>
+      <p>
+        Personal Section
+      </p>
+      <h4>Professional</h4>
+      <p>
+        All professional insights can be seen in Resume.
+      </p>
+    </section>
+    <hr>
+    <section id="resume-container">
+      <h2>Here is my <u>Resume</u></h2>
+      <iframe src="example.pdf"></iframe>
+    </section>
+    <hr>
+    <section id="projects-container">
+      <h2>Here are my <u>Projects</u></h2>
+      <h4>Featured Projects</h4>
+      <div class="project-flexbox">
+        <div class="item">
+          <img src="./images/one.jpg" alt="error loading picture" class="picture-project">
+          <h5>Project 1</h5>
+          <div>
+            <button>Demo</button>
+            <button>Code</button>
+          </div>
+        </div>
+      </div>
+      <h4>Other Projects</h4>
+      <div class="project-flexbox">
+        <div class="item">
+          <img src="./images/two.jpg" alt="error loading picture" class="picture-project">
+          <h5>Project 2</h5>
+          <div>
+            <button>Demo</button>
+            <button>Code</button>
+          </div>
+        </div>
+        <div class="item">
+          <img src="./images/three.jpg" alt="error loading picture" class="picture-project">
+          <h5>Project 3</h5>
+          <div>
+            <button>Demo</button>
+            <button>Code</button>
+          </div>
+        </div>
+        <div class="item">
+          <img src="./images/four.jpg" alt="error loading picture" class="picture-project">
+          <h5>Project 4</h5>
+          <div>
+            <button>Demo</button>
+            <button>Code</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr>
+    <section id="contact-container">
+      <h2><u>Contact</u> Me</h2>
+      <form>
+        <label for="name" class="form-group">Name:
+          <input type="text" id="name" name="name" oninput="checkInput(event, this, 'name')" required>
+        </label>
+        <div>
+          <output id="nameError"></output>
+          <output id="nameInfo"></output>
+        </div>
+        <label for="email" class="form-group">Email:
+          <input type="email" id="email" name="email" required>
+        </label>
+        <div>
+          <output id="emailError"></output>
+          <output id="emailInfo"></output>
+        </div>
+        <label for="comments" class="form-group">Comments:
+          <textarea id="comments" name="comments" rows="10" oninput="textAreaCounter();checkInput(event, this, 'comments')" maxlength="1000" required></textarea>
+        </label>
+        <div>
+          <output id="commentsError"></output>
+          <output id="commentsInfo"></output>
+        </div>
+        <input type="hidden" id="custId" name="custId" value="3487">
+        <button onclick="submitContact(event)">Submit</button>
+      </form>
+    </section>
+    <script>
+      let form_errors = [];
+
+      if (localStorage.getItem('currentTheme') == null) {
+        let themeObject = {
+          name: 'Sun',
+          backgroundColor: '#FFFFFF',
+          primaryColor: '#E5D283',
+          textColor: '#000000',
+          fontSet: 'Source Code Pro'
+        };
+        localStorage.setItem('currentTheme', JSON.stringify(themeObject));
+      }
+      else {
+        let currentTheme = JSON.parse(localStorage.getItem('currentTheme'));
+        setTheme(currentTheme.backgroundColor, currentTheme.primaryColor, currentTheme.textColor,
+          currentTheme.fontSet);
+      }
+      
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key == 'currentTheme') {
+          continue;
+        }
+        const value = localStorage.getItem(key);
+        let storedTheme = JSON.parse(value);
+        let parent = document.getElementById('theme-flexbox');
+
+        let outerDiv  = document.createElement('div');
+        let innerDiv = document.createElement('div');
+        let textDiv = document.createElement('div');
+
+        let topColor = storedTheme.backgroundColor;
+        let bottomColor = storedTheme.primaryColor;
+        innerDiv.style.background = `linear-gradient(to bottom, ${topColor} 50%, ${bottomColor} 50%)`;
+        innerDiv.onclick = () => {
+          setTheme(storedTheme.backgroundColor, storedTheme.primaryColor, storedTheme.textColor, storedTheme.fontSet);
+        };
+        innerDiv.classList.add('theme-option');
+        textDiv.textContent = storedTheme.name;
+        outerDiv.appendChild(innerDiv);
+        outerDiv.appendChild(textDiv);
+        parent.appendChild(outerDiv);
+      }
+      
+
+      function setTheme(backColor, primaryColor, textColor, fontSet) {
+        document.documentElement.style.setProperty('--background-color', backColor);
+        document.documentElement.style.setProperty('--primary-color', primaryColor);
+        document.documentElement.style.setProperty('--text-color', textColor);
+        document.documentElement.style.setProperty('--font-set', fontSet);
+        localStorage.setItem('currentTheme', JSON.stringify({
+          backgroundColor: backColor,
+          primaryColor: primaryColor,
+          textColor: textColor,
+          fontSet: fontSet
+        }));
+      }
+      function saveTheme() {
+        let name = document.getElementById('nameTheme');
+        let backgroundColor = document.getElementById('backColorTheme');
+        let primaryColor = document.getElementById('primaryColorTheme');
+        let textColor = document.getElementById('textColorTheme');
+        let fontSet = document.getElementById('fontSetTheme')
+
+        let themeObject = {
+          name: name.value,
+          backgroundColor: backgroundColor.value,
+          primaryColor: primaryColor.value,
+          textColor: textColor.value,
+          fontSet: fontSet.value
+        };
+
+        name.value = '';
+        backgroundColor.value = '#000000';
+        primaryColor.value = '#000000';
+        textColor.value = '#000000';
+        fontSet.selectedIndex = 0;
+
+        localStorage.setItem(themeObject.name, JSON.stringify(themeObject));
+        alert('Color Theme Saved: Please Reload Page');
+      }
+      function deleteAllCustomThemes() {
+        localStorage.clear();
+        alert('All Custom Themes Deleted: Please Reload Page');
+      }
+      function openCustomizeTheme() {
+        document.getElementById('modal-backdrop').style.display = 'block';
+      }
+      function closeCustomizeTheme() {
+        document.getElementById('modal-backdrop').style.display = 'none';
+      }
+      function setErrorMessage(errorRef, errorMessage) {
+        errorRef.innerText = errorMessage;
+        errorRef.style.color = '#E80000';
+      }
+      function setInfoMessage(infoRef, infoMessage) {
+        infoRef.innerText = infoMessage;
+      }
+      function checkInput(event, element, type) {
+        let nameErrorRef = document.getElementById("nameError");
+        let nameInfoRef = document.getElementById("nameInfo");
+        let commentsErrorRef = document.getElementById("commentsError");
+        let commentsInfoRef = document.getElementById("commentsInfo");
+
+        let emailRegex;
+        const inputValue = element.value;
+        let isValid;
+
+        if (type == 'name') {
+          emailRegex = /^[a-zA-Z0-9.'-]+$/;
+          isValid = emailRegex.test(inputValue);
+          if (!isValid) {
+            event.target.value = event.target.value.slice(0,-1);
+            recalculateElement(element, 'flash');
+            recalculateElement(nameErrorRef, 'fadeout');
+            setErrorMessage(nameErrorRef,`Error: Please Enter a Valid Character (A-Z,a-z,-,.,'')`);
+            form_errors.push([
+              {
+                name: 'Invalid Name Character',
+                time: Date.now()
+              }
+            ]);
+          }
+        }
+        if (type == 'comments') {
+          emailRegex = /^[a-zA-Z0-9.'-@()&]+$/;
+          isValid = emailRegex.test(inputValue);
+          if (!isValid) {
+            event.target.value = event.target.value.slice(0,-1);
+            recalculateElement(element, 'flash');
+            recalculateElement(commentsErrorRef, 'fadeout');
+            setErrorMessage(commentsErrorRef,`Error: Please Enter a Valid Character (A-Z,a-z,-,.,',@,(,),&)`);
+            form_errors.push([
+              {
+                name: 'Invalid Comments Character',
+                time: Date.now()
+              }
+            ]);
+          }
+        }
+      }
+      async function submitContact(event) {
+        event.preventDefault();
+        let nameRef = document.getElementById("name");
+        let emailRef = document.getElementById("email");
+        let commentsRef = document.getElementById("comments");
+
+        let nameErrorRef = document.getElementById("nameError");
+        let emailErrorRef = document.getElementById("emailError");
+        let commentsErrorRef = document.getElementById("commentsError");
+        let nameInfoRef = document.getElementById("nameInfo");
+        let emailInfoRef = document.getElementById("emailInfo");
+        let commentsInfoRef = document.getElementById("commentsInfo");
+
+        if (emailRef.validity.typeMismatch) {
+          recalculateElement(emailRef, 'flash');
+          emailRef.setCustomValidity("Please enter a valid email address.");
+        } else {
+          emailRef.setCustomValidity("");
+        }
+        if (nameRef.value == '') {
+          recalculateElement(nameRef, 'flash');
+          setErrorMessage(nameErrorRef, 'Error: Please enter a Name');
+        } else {
+          setErrorMessage(nameErrorRef, '');
+        }
+        if (emailRef.value == '') {
+          recalculateElement(emailRef, 'flash');
+          setErrorMessage(emailErrorRef, 'Error: Please enter an Email');
+        } else {
+          setErrorMessage(emailErrorRef, '');
+        }
+        if (commentsRef.value == '') {
+          recalculateElement(commentsRef, 'flash');
+          setErrorMessage(commentsErrorRef,'Error: Please enter Comments');
+        } else {
+          setErrorMessage(commentsErrorRef, '');
+        }
+
+        let form = {
+          name: nameRef.value,
+          email: emailRef.value,
+          comments: commentsRef.value,
+          error_array : JSON.stringify(form_errors)
+        };
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(form)
+          };
+        try {
+          let response = await fetch('https://httpbin.org/post', requestOptions);
+          console.log(response);
+        } catch (error) {
+          console.error(error);
+        }
+      }
+      function textAreaCounter() {
+        const commentsRef = document.getElementById('comments');
+        const commentsInfoRef = document.getElementById('commentsInfo'); 
+        const maxLength = commentsRef.getAttribute('maxlength');
+
+        setInfoMessage(commentsInfoRef, `${commentsRef.value.length}`)
+        if ((maxLength - 10) <= commentsRef.value.length) {
+          commentsInfoRef.style.color = '#E80000';
+        } 
+        else {
+          commentsInfoRef.style.color = '#000000';
+        }
+      }
+      function recalculateElement(element, className) {
+        element.classList.remove(className);
+        void element.offsetHeight;
+        element.classList.add(className);
+      }
+    </script>
+  </body>
+</html>

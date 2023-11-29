@@ -1,0 +1,97 @@
+@import 'common.css';
+
+#contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+form {
+  width: 100%;
+  font-size: var(--default-font-size, 16px);
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin: 10px 0;
+  width: 100%;
+}
+
+label {
+  display: block;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="submit"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  background-color: var(--primary-color, #E5D283);
+  border: none;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.flash {
+  animation: flash 0.5s ease-in-out;
+}
+
+@keyframes flash {
+  0%, 100% {
+    background-color: #FFFFFF;
+  }
+  50% {
+    background-color: lightcoral;
+  }
+}
+
+.fadeout {
+  animation: fadeout 3s ease-in-out forwards;
+}
+
+@keyframes fadeout {
+  0% {
+    display: inline-block;
+    opacity: 1;
+  }
+  100% {
+    display: none;
+    opacity: 0;
+  }
+}
+
+
+
+
+
+
+
+
+.form-no-js-input:invalid + output, .form-no-js-textarea:invalid + output {
+  display: inline-block;
+  color: red;
+}
+
+.form-no-js-input:valid + output, .form-no-js-textarea:valid + output {
+  display: none;
+}
+
+.form-no-js-input:placeholder-shown + output, .form-no-js-textarea:placeholder-shown + output {
+  display: none;
+  background-color: pink;
+}

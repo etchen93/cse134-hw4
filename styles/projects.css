@@ -1,0 +1,75 @@
+@import 'common.css';
+
+#projects-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.project-flexbox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  border: solid #ccc 1px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin: 5px;
+  width: 250px;
+}
+
+button {
+  background-color: var(--primary-color, #E5D283);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 3px;
+  margin: 5px;
+  font-size: var(--default-font-size, 16px);;
+}
+
+.picture-project {
+  width: 250px;
+}
+
+@media screen and (max-width: 480px) {
+  .picture-project {
+    width: 175px;
+  }
+  .item {
+    width: 175px;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .picture-project {
+    width: 200px;
+  }
+  .item {
+    width: 200px;
+  }
+}
+
+
+@media screen and (min-width: 1025px) {
+  .picture-project {
+    width: 300px;
+  }
+  .item {
+    width: 300px;
+  }
+}
